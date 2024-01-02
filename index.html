@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"></p>
+        <style>
+            .w3-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .w3-fifth {
+            width: 20%; /* Set the width to 20% for each fifth */
+            box-sizing: border-box; /* Include padding and border in the width */
+            padding: 5px; /* Optional padding */
+            /* Add any other styles for each fifth column */
+        }
+    </style>
+        <body>
+<!-- Navigation -->
+<nav class="w3-bar w3-purple">
+    <a href="#home" class="w3-button w3-bar-item">Home</a>
+    <a href="#about" class="w3-button w3-bar-item">About</a>
+    <a href="#events" class="w3-button w3-bar-item">Events</a>
+    <a href="#contact" class="w3-button w3-bar-item">Contact</a>
+  </nav>
+
+  <!-- Slide Show -->
+  <style>
+    /* CSS for the slideshow images */
+    .mySlides {
+        width: 100%;
+        /* Set the height to your desired value */
+        height: 400px; /* Adjust this value to change the height */
+        object-fit: cover; /* Maintain aspect ratio and cover the container */ 
+    }
+  </style>
+<section>
+    <img class="mySlides" src="utsav.png" style="width:100%">
+    <img class="mySlides" src="utsav_2.jpg" style="width:100%">
+    <img class="mySlides" src="utsav_3.jpg" style="width:100%">
+  </section>
+
+  
+  <!-- Article layout -->
+
+  <section class="w3-container w3-center" style="max-width:4000px">
+    <h2 class="w3-wide">UTSAV</h2>
+    <p class="w3-opacity"><i>The Home away from Home</i></p>
+  </section>
+
+  <section class="w3-container w3-content w3-center" style="max-width:600px">
+    <p class="w3-justify">
+We are UBC's biggest student-led organisation. We organise events for Indian students on campus.
+ Give description of events and main activities. Can insert links to past event photos and description  
+ </section>
+
+
+ <style>
+      .custom-section {
+        /* Set the background color to your desired color */
+        background-color: aquamarine; /* Change this to aquamarine or violet as needed */
+        /* Add any other styles you want for the section */
+    }
+ </style>
+
+<!--MEMBERS PROFILE-->
+<section class="w3-center">
+<p>Members</p> 
+<section>
+
+
+<!--CORE TEAM-->
+<section class="w3-row w3-center custom-section">
+    <article class="w3-fifth">
+      <p>President</p>
+      <img src="img_bandmember.jpg" alt="Random Name" style="width:100%">
+    </article>
+    <article class="w3-fifth">
+      <p>Vice-President</p>
+      <img src="img_bandmember.jpg" alt="Random Name" style="width:100%">
+    </article>
+    <article class="w3-fifth">
+      <p>Finance</p>
+      <img src="img_bandmember.jpg" alt="Random Name" style="width:100%">
+    </article>
+    
+    <article class="w3-fifth">
+        <p>Finance</p>
+        <img src="img_bandmember.jpg" alt="Random Name" style="width:100%">
+      </article>
+      
+    <article class="w3-fifth">
+        <p>Finance</p>
+        <img src="img_bandmember.jpg" alt="Random Name" style="width:100%">
+      </article>
+  </section>
+
+<!--REST MEMBERS- we can do a slide show or just have photos -->
+
+
+
+  <!------------------------------------------------------------>
+  <!---Java script for automatic slide show-->
+<script>
+  // Automatic Slideshow - change image every 3 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2500);
+}
+</script>
+            
+            </body>
+            </html>
