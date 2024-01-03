@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <p style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"></p>
+        <style>
+            .w3-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .w3-fifth {
+            width: 20%; /* Set the width to 20% for each fifth */
+            box-sizing: border-box; /* Include padding and border in the width */
+            padding: 5px; /* Optional padding */
+            /* Add any other styles for each fifth column */
+        }
+    </style>
+
+        <body>
+            
+  <section class="w3-container w3-center" style="max-width:4000px">
+    <h2 class="w3-wide">UTSAV</h2>
+    <p class="w3-opacity"><i>The Home away from Home</i></p>
+  </section>
+  <div class="swatch">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <style>
+    
+  </style>
+</body>
+</html>
+<div class="swatch">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<style>
+.swatch {
+  display: block;
+  text-align: center;
+  position: relative;
+  margin: 100px;
+  
+  div {
+    width: 70px;
+    height: 225px;
+    position: absolute;
+    top: 0px;
+    border-radius: 5px;
+    border-top: solid 2px rgba(0, 0, 0, .2);
+    border-left: solid 3px rgba(255, 255, 255, .2);
+    border-bottom: solid 3px rgba(0, 0, 0, .2);
+    text-align: center;
+    box-sizing: border-box;
+    transform-origin: center 90%;
+    display: inline-block;
+    backface-visibility: hidden;
+    margin-left: -35px;
+    transform: rotate(0deg);
+  }
+  
+  div:before {
+    width: 16px;
+    height: 16px;
+    content: "";
+    display: inline-block;
+    border-radius: 8px;
+    bottom: 10px;
+    position: absolute;
+    margin-left: -8px;
+  }
+  
+  div:nth-child(1) {
+    background-color: #fd8f4b;
+    animation: swatch-purple-motion 5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+  div:nth-child(2) {
+    background-color: #1c3276;
+    animation: swatch-blue-motion 5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+  div:nth-child(3) {
+    background-color: #7ed757;
+    animation: swatch-green-motion 5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+  div:nth-child(4) {
+    background-color: rgb(233, 202, 24);
+    animation: swatch-yellow-motion 5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+  div:nth-child(5) {
+    background-color: #8c2d8f;
+    animation: swatch-orange-motion 5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+  div:nth-child(6) {
+    background-color: #fd5eac;
+    animation: swatch-red-motion 5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes swatch-purple-motion {
+  0% {
+    transform: rotate(0deg);
+  }
+  30%, 70% {
+    transform: rotate(-65deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swatch-blue-motion {
+  0% {
+    transform: rotate(0deg);
+  }
+  30%, 70% {
+    transform: rotate(-40deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swatch-green-motion {
+  0% {
+    transform: rotate(0deg);
+  }
+  30%, 70% {
+    transform: rotate(-15deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swatch-yellow-motion {
+  0% {
+    transform: rotate(0deg);
+  }
+  30%, 70% {
+    transform: rotate(15deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swatch-orange-motion {
+  0% {
+    transform: rotate(0deg);
+  }
+  30%, 70% {
+    transform: rotate(40deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes swatch-red-motion {
+  0% {
+    transform: rotate(0deg);
+  }
+  30%, 70% {
+    transform: rotate(65deg);
+  }
+  90%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+</style>
