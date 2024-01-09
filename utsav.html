@@ -40,10 +40,12 @@
 #hc1 li{
 margin:0 3px 0px 0; /*Spacing between each LI container*/
         overflow: hidden; /* Hide overflow content */
+        height: 400px;
 }
 
 #hc1 li .hpanel{
   background-color: #FFE7FF;
+  height: 500px;
         padding: 10px; /* Padding inside each content */
         text-align: center;
 }
@@ -55,7 +57,7 @@ margin:0 3px 0px 0; /*Spacing between each LI container*/
 
 haccordion.setup({
 	accordionid: 'hc1', //main accordion div id
-	paneldimensions: {peekw:'50px', fullw:'400px', h:'158px'},
+	paneldimensions: {peekw:'50px', fullw:'400px', h:'800px'},
 	selectedli: [0, true], //[selectedli_index, persiststate_bool]
 	collapsecurrent: false //<- No comma following very last setting!
 })
@@ -69,7 +71,7 @@ haccordion.setup({
     <a href="utsav.html" class="w3-button w3-bar-item" style="font-family: Georgia, 'Times New Roman', Times, serif; color: #504350; font-size: 20px">Home</a>
     <a href="about.html" class="w3-button w3-bar-item" style="font-family: Georgia, 'Times New Roman', Times, serif; color: #504350; font-size: 20px">About</a>
     <a href="collaborate.html" class="w3-button w3-bar-item" style="font-family: Georgia, 'Times New Roman', Times, serif; color: #504350; font-size: 20px">Contact</a>
-    <a href="#contact" class="w3-button w3-bar-item" style="padding-right: 100px; font-family: Georgia, 'Times New Roman', Times, serif; color: #504350; font-size: 20px">Sponsor</a>
+    <a href="sponsor.html" class="w3-button w3-bar-item" style="padding-right: 100px; font-family: Georgia, 'Times New Roman', Times, serif; color: #504350; font-size: 20px">Sponsor</a>
   </nav>
 
   <!-- Slide Show -->
@@ -110,10 +112,18 @@ haccordion.setup({
     <br> blah blah blah blah blah blah blah blah blah blah blah
     <br> blah blah blah blah blah blah blah blah blah blah blah
     <br> blah blah blah blah blah blah blah blah blah blah blah
-    <br> blah blah blah blah blah blah blah blah blah blah blah</p>
+    <br> blah blah blah blah blah blah blah blah blah blah blah
+   <br> 
+  <br> </p>
+    
+  <a href="https://www.showpass.com/utsav-membership-2023-24/" class="button"> Become a Member Today!</a>
+
+
+
 
   </section>
 
+   
   
   <div class = "gap"></div>
   </div>
@@ -127,44 +137,71 @@ haccordion.setup({
     <ul>
     <li>
       <div class="hpanel">
-      <img src="utsav_2.jpg" 
-      style="float:left; padding-right:8px; width: 60%; height: 100%" 
-      />
-      <p>Event 1 Description</p>
+          <div class="image-container">
+            <img src="utsav_2.jpg" alt="Your Image">
+            <div class="overlay">
+              <div class="text" 
+              style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 7vw;">HOLI</div>
+            </div>
+          </div>
       </div>
     </li>
   
     <li>
       <div class="hpanel">
-      <img src="utsav_3.jpg" 
-      style="float:left; padding-right:8px; width:60%; height:100% ; color: #504350; font-family: Georgia, 'Times New Roman', Times, serif;"
-      /> Diwali the festival of lights.
+        
+        <div class="image-container">
+          <img src="utsav_3.jpg" alt="Your Image">
+          <div class="overlay">
+            <div class="text"
+             style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 7vw;">DIWALI</div>
+          </div>
+        </div>
+      </div>
+    </li>
+
+      
+    <li>
+      <div class="hpanel">
+        
+        <div class="image-container">
+          <img src="utsav_4.jpg" alt="Your Image">
+          <div class="overlay">
+            <div class="text"
+             style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 7vw;">TAASH</div>
+          </div>
+        </div>
+      </div>
+    </li>
+  
+  
+    <li>
+      <div class="hpanel">
+        
+        <div class="image-container">
+          <img src="utsav_5.jpg" alt="Your Image">
+          <div class="overlay">
+            <div class="text"
+             style = "font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size:6vw;">TAMASHA X UTSAV</div>
+          </div>
+        </div>
       </div>
     </li>
   
     <li>
       <div class="hpanel">
-      <img src="utsav_4.jpg"
-       style="float:left; padding-right:8px; width:60%; height:100%" 
-       />Taash - Poker Night.
+        
+        <div class="image-container">
+          <img src="utsav_5.jpg" alt="Your Image">
+          <div class="overlay">
+            <div class="text"
+             style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 7vw;">CRICKET</div>
+          </div>
+        </div>
       </div>
     </li>
   
-    <li>
-      <div class="hpanel">
-      <img src="utsav_5.jpg" 
-      style="float:left; padding-right:8px; width:60%; height:100%" 
-      /> Tamasha x Utsav Collab nights
-      </div>
-    </li>
-  
-    <li>
-      <div class="hpanel">
-        <img src="utsav_4.jpg" style="float: left; padding-right: 8px; width: 60%; height: 100%;"/>
-        <p class="text-center">Langkawi is particularly known for its beaches which are among the best in Malaysia.</p>
-      </div>
-    </li>
-    
+   
     </ul>
   </div>
 
@@ -182,15 +219,15 @@ haccordion.setup({
     | <a href="javascript:haccordion.expandli('hc1', 1)">Diwali</a> 
     | <a href="javascript:haccordion.expandli('hc1', 2)"> Taash Poker Night</a> 
     | <a href="javascript:haccordion.expandli('hc1', 3)">Tamasha x Utsav Collab Nights</a> 
-    | <a href="javascript:haccordion.expandli('hc1', 4)">Adyesha is the best</a></p>
+    | <a href="javascript:haccordion.expandli('hc1', 4)">Cricket Viewing Party</a></p>
 
   </section>
-
 
   <div class="gap"></div>
   
   <p style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: x-large; text-align: center;"> Find Us on Instagram </p>
-  <div class="gap"></div>
+ 
+  <div class="gap" style="padding: 20px;">
 
   
   <!--Add Instagram posts of most popular events-->
@@ -198,7 +235,7 @@ haccordion.setup({
   <!--post 1 Diwali-->
   <table cellspacing="10px">
     <tr>
-        <td style="width: 30%; vertical-align: top;">
+        <td style="width: 25%; vertical-align: top;">
   <blockquote
    class="instagram-media" data-instgrm-captioned data-instgrm-permalink ="https://www.instagram.com/reel/C02PtY5SUUO/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" 
     style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 2px 0 rgba(0,0,0,0.15); margin: 1px; max-width:12
@@ -216,7 +253,7 @@ haccordion.setup({
 
           
           <!--POST 2-->
-        <td style="width: 33.33%; vertical-align: top;">
+        <td style="width: 25%; vertical-align: top;">
             <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/Cqgtu66oqzn/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" 
             style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:150px; min-width:150px;
              padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
@@ -231,7 +268,7 @@ haccordion.setup({
           </td>
 
         <!--Post 3-->
- <td style="width: 33.33%; vertical-align: top;">
+ <td style="width: 25%; vertical-align: top;">
 <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink=
 "https://www.instagram.com/p/CyuP4x7JehA/?utm_source=ig_embed&amp;utm_campaign=loading"
  data-instgrm-version="14" style=" background:#FFF;
@@ -250,7 +287,7 @@ haccordion.setup({
 
 
   <!--POST 3-->
-  <td style="width: 33.33%; vertical-align: top;">
+  <td style="width: 25%; vertical-align: top;">
     <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CznO_0cS2Ev/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" 
     style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
     <div style="padding:16px;"> <a href="https://www.instagram.com/p/CznO_0cS2Ev/?utm_source=ig_embed&amp;utm_campaign=loading" 
@@ -278,7 +315,44 @@ haccordion.setup({
     margin: 0; /* Reset margin to remove default spacing */
   }
   </style>
+<style>
+  
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Adjust as needed */
+}
 
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust alpha for transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.text {
+  color: white;
+  opacity: .7;
+  font-size: 24px;
+  text-align: center;
+  position: absolute;
+  /* Additional styles for your text */
+}
+</style>
   
 <style>
   .gap {
@@ -286,6 +360,22 @@ haccordion.setup({
   }
   
   </style>
+
+<style>
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  justify-content: center;
+  text-align: center;
+  font-size: large;
+  background-color: #9e36a2;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+</style>
+
+
   
   
   <!--CONTACT US-->
