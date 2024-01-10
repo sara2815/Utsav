@@ -236,7 +236,7 @@ haccordion.setup({
     style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 2px 0 rgba(0,0,0,0.15); margin: 1px; max-width:12
     0px; min-width:120px; padding:0;
         width:60%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);
-        "><div style="padding:2px;"> <a href="https://www.instagram.com/reel/C02PtY5SUUO/?utm_source=ig_embed&amp;utm_campaign=loading" 
+        "><div style="padding:0px;"> <a href="https://www.instagram.com/reel/C02PtY5SUUO/?utm_source=ig_embed&amp;utm_campaign=loading" 
          style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> 
          <div 
          style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div>
@@ -370,10 +370,39 @@ haccordion.setup({
 }
 </style>
 
+<style>
+  /*Overall CSS for each Horizontal Accordion.
+	Most settings should be kept as it.
+	Customize each Accordion by styling each Accordion's ID attribute instead.
+*/
 
-  
-  
-  <!--CONTACT US-->
+.haccordion{
+padding: 0;
+}
+
+.haccordion ul{
+margin: 0;
+padding: 0;
+list-style: none;
+overflow: hidden; /*leave as is*/
+}
+
+
+.haccordion li{
+margin: 0;
+padding: 0;
+display: block; /*leave as is*/
+width: 100%; /*For users with JS disabled: Width of each content*/
+height: 200px; /*For users with JS disabled: Height of each content*/
+overflow: hidden; /*leave as is*/
+float: left; /*leave as is*/
+}
+
+.haccordion li .hpanel{
+width: 100%; /*For users with JS disabled: Width of each content*/
+height: 200px;  /*For users with JS disabled: Height of each content*/
+}
+</style>
 
 
 
@@ -415,5 +444,130 @@ function carousel() {
   background-color:  #50434F; 
 }
 </style>
+
+
+<!--JAVASCRIPT STUFF-->
+<script>
+  /* Horizontal Accordion script
+* Created: Oct 27th, 2009. This notice must stay intact for usage 
+* Author: Dynamic Drive at http://www.dynamicdrive.com/
+* Visit http://www.dynamicdrive.com/ for full source code
+*/
+
+//** Jan 04, 12'- Script updated to work properly in popular mobile devices such as iPad/iPhone and Android tablets.
+
+
+var haccordion={
+	//customize loading message if accordion markup is fetched via Ajax:
+	ajaxloadingmsg: '<div style="margin: 1em; font-weight: bold"><img src="ajaxloadr.gif" style="vertical-align: middle" /></div>',
+
+	ismobile:navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i) != null, //boolean check for popular mobile browsers
+	accordioninfo: {}, //class that holds config information of each haccordion instance
+
+	expandli:function(accordionid, targetli){
+		var config=haccordion.accordioninfo[accordionid]
+		var $targetli=(typeof targetli=="number")? config.$targetlis.eq(targetli) : (typeof targetli=="string")? jQuery('#'+targetli) : jQuery(targetli)
+		if (typeof config.$lastexpanded!="undefined") //targetli may be an index, ID string, or DOM reference to LI
+			config.$lastexpanded.stop().animate({width:config.paneldimensions.peekw}, config.speed) //contract last opened content
+		$targetli.stop().animate({width:$targetli.data('hpaneloffsetw')}, config.speed) //expand current content
+		config.$lastexpanded=$targetli
+	},
+
+
+	urlparamselect:function(accordionid){
+		var result=window.location.search.match(new RegExp(accordionid+"=(\\d+)", "i")) //check for "?accordionid=index" in URL
+		if (result!=null)
+			result=parseInt(RegExp.$1)+"" //return value as string so 0 doesn't test for false
+		return result //returns null or index, where index is the desired selected hcontent index
+	},
+
+	getCookie:function(Name){ 
+		var re=new RegExp(Name+"=[^;]+", "i") //construct RE to search for target name/value pair
+		if (document.cookie.match(re)) //if cookie found
+			return document.cookie.match(re)[0].split("=")[1] //return its value
+		return null
+	},
+
+	setCookie:function(name, value){
+		document.cookie = name + "=" + value + "; path=/"
+	},
+
+
+	loadexternal:function($, config){ //function to fetch external page containing the entire accordion content markup
+		var $hcontainer=$('#'+config.ajaxsource.container).html(this.ajaxloadingmsg)
+		$.ajax({
+			url: config.ajaxsource.path, //path to external content
+			async: true,
+			dataType: 'html',
+			error:function(ajaxrequest){
+				$hcontainer.html('Error fetching content.<br />Server Response: '+ajaxrequest.responseText)
+			},
+			success:function(content){
+				$hcontainer.html(content)
+				haccordion.init($, config)
+			}
+		})
+	},
+
+
+	init:function($, config){
+			haccordion.accordioninfo[config.accordionid]=config //cache config info for this accordion
+			var $targetlis=$('#'+config.accordionid).find('ul:eq(0) > li') //find top level LIs
+			config.$targetlis=$targetlis
+			config.selectedli=config.selectedli || [] //set default selectedli option
+			config.speed=config.speed || "normal" //set default speed
+			$targetlis.each(function(i){
+				var $target=$(this).data('pos', i) //give each li an index #
+				$target.data('hpaneloffsetw', $target.find('.hpanel:eq(0)').outerWidth()) //get offset width of each .hpanel DIV (config.dimensions.fullw + any DIV padding)
+				$target[haccordion.ismobile? "click" : "mouseenter"](function(){
+						haccordion.expandli(config.accordionid, this)
+					config.$lastexpanded=$(this)
+				})
+				if (config.collapsecurrent){ //if previous content should be contracted when expanding current
+					$target.mouseleave(function(){
+						$(this).stop().animate({width:config.paneldimensions.peekw}, config.speed) //contract previous content
+					})
+				}				
+			}) //end $targetlis.each
+			var selectedli=haccordion.urlparamselect(config.accordionid) || ((config.selectedli[1] && haccordion.getCookie(config.accordionid))? parseInt(haccordion.getCookie(config.accordionid)) : config.selectedli[0])
+			selectedli=parseInt(selectedli)
+			if (selectedli>=0 && selectedli<config.$targetlis.length){ //if selectedli index is within range
+				config.$lastexpanded=$targetlis.eq(selectedli)
+				config.$lastexpanded.css('width', config.$lastexpanded.data('hpaneloffsetw')) //expand selected li
+			}
+			$(window).bind('unload', function(){ //clean up and persist on page unload
+				haccordion.uninit($, config)
+			}) //end window.onunload
+	},
+
+	uninit:function($, config){
+		var $targetlis=config.$targetlis
+		var expandedliindex=-1 //index of expanded content to remember (-1 indicates non)
+		$targetlis.each(function(){
+			var $target=$(this)
+			$target.unbind()
+			if ($target.width()==$target.data('hpaneloffsetw'))
+				expandedliindex=$target.data('pos')
+		})
+		if (config.selectedli[1]==true) //enable persistence?
+			haccordion.setCookie(config.accordionid, expandedliindex)
+	},
+
+	setup:function(config){
+		//Use JS to write out CSS that sets up initial dimensions of each LI, for JS enabled browsers only
+		document.write('<style type="text/css">\n')
+		document.write('#'+config.accordionid+' li{width: '+config.paneldimensions.peekw+';\nheight: '+config.paneldimensions.h+';\n}\n')
+		document.write('#'+config.accordionid+' li .hpanel{width: '+config.paneldimensions.fullw+';\nheight: '+config.paneldimensions.h+';\n}\n')
+		document.write('<\/style>')
+		jQuery(document).ready(function($){ //on Dom load
+			if (config.ajaxsource) //if config.ajaxsource option defined
+				haccordion.loadexternal($, config)
+			else
+				haccordion.init($, config)
+		}) //end DOM load
+	}
+
+}
+</script>
 </body>
             </html>
