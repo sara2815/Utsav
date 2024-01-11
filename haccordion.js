@@ -6,6 +6,7 @@
 
 //** Jan 04, 12'- Script updated to work properly in popular mobile devices such as iPad/iPhone and Android tablets.
 
+
 var haccordion={
 	//customize loading message if accordion markup is fetched via Ajax:
 	ajaxloadingmsg: '<div style="margin: 1em; font-weight: bold"><img src="ajaxloadr.gif" style="vertical-align: middle" /></div>',
