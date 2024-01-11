@@ -6,6 +6,8 @@
 
 //** Jan 04, 12'- Script updated to work properly in popular mobile devices such as iPad/iPhone and Android tablets.
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 
 var haccordion={
 	//customize loading message if accordion markup is fetched via Ajax:
